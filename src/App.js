@@ -21,6 +21,8 @@ const App = () => {
         Advice Count : <span>{count}</span>
       </p>
 
+      <p className='footer'>Designed By <a href="https://personal-portfolio-roan-three.vercel.app/">Shakthi</a></p>
+
     </div>
   )
 }
