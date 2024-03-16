@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import './App.css'
 
-function App() {
+const App = () => {
+  const [advice, setadvice] = useState("Please Click the Button get advice");
+  const [count, setcount] = useState(0);
+
+  async function advicefree() {
+    const res = await fetch("https://api.adviceslip.com/advice")
+    const data = await res.json()
+    setadvice(data.slip.advice)
+    setcount((c)=>c+1)
+
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-container'>
+      <h1>Free Advice</h1>
+      <h3>{advice}</h3>
+      <button onClick={advicefree}>Get Advice</button>
+      <p>
+        Advice Count : <span>{count}</span>
+      </p>
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
