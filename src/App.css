@@ -10,6 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 5%;
 }
 
 .app-container h1 {
@@ -44,5 +45,5 @@ button:hover {
 a {
   text-decoration: none;
   color: yellow;
-  
+
 }
